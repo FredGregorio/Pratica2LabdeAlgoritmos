@@ -14,7 +14,7 @@ double dist[10][10];
 int perm[10 - 1];          //cidades a serem permutadas (1 a 9)
 int melhorRota[10 - 1];    // aqui vai ficar a melhor rota
 double menorDistancia = 1000000.0;  // Um valor inicial bem alto
-long long totalRotas = 0; // long long porque é um valor grande sendo mais de 300k
+long int totalRotas = 0; // long long porque é um valor grande sendo 362.880 ou seja 9!
 
 // Funçao que criei pra calcular a distância euclidiana
 double euclidiana(double x1, double y1, double x2, double y2) {
@@ -61,11 +61,12 @@ void Permutacao(int inicio, int fim) {
         totalRotas++;
 
         // Mostra a rota atual
-        printf("Rota %lld: 0 -> ", totalRotas);
+        /*printf("Rota %ld: 0 -----> ", totalRotas);
         for (i = 0; i < 10 - 1; i++) {
-            printf("%d ---> ", perm[i]);
+            printf("%d -----> ", perm[i]);
         }
         printf("0 | Dist.: %.2lf\n", soma);
+        */
 
         // Atualiza melhor rota
         if (soma < menorDistancia) {
@@ -100,10 +101,10 @@ int main() {
     // Mostra melhor rota encontrada
     printf("\nMelhor rota encontrada:\n0 -> ");
     for (i = 0; i < 10 - 1; i++) {
-        printf("%d ---> ", melhorRota[i]);
+        printf("%d -----> ", melhorRota[i]);
     }
     printf("0 | Dist. total: %.2lf\n", menorDistancia);
-    printf("Total de rotas avaliadas: %lld\n", totalRotas);
+    printf("Total de rotas avaliadas: %ld\n", totalRotas);
 
     return 0;
 }
