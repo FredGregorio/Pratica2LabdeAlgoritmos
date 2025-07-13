@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#define N 10
 
 // Coordenadas das 10 cidades separadas em X e Y em dois conjuntos
 double coordenadasX[10] = {0, 2, 5, 1, 6, 3, 7, 4, 8, 6}; // decidi colocar elas assim pra facilitar em alguns pontos do codigo viu George 
@@ -41,8 +40,8 @@ void trocar(int a[], int i, int j) {
     a[j] = temp;
 }
 
-// Gera permutações usando backtracking
-void gerarPerm(int inicio, int fim) {
+// Gera permutações 
+void Permutacao(int inicio, int fim) {
     if (inicio == fim) {
         double soma = 0;
         int i;
@@ -64,7 +63,7 @@ void gerarPerm(int inicio, int fim) {
         // Mostra a rota atual
         printf("Rota %lld: 0 -> ", totalRotas);
         for (i = 0; i < 10 - 1; i++) {
-            printf("%d -> ", perm[i]);
+            printf("%d ---> ", perm[i]);
         }
         printf("0 | Dist.: %.2lf\n", soma);
 
@@ -82,7 +81,7 @@ void gerarPerm(int inicio, int fim) {
     int i;
     for (i = inicio; i <= fim; i++) {
         trocar(perm, inicio, i);
-        gerarPerm(inicio + 1, fim);
+        Permutacao(inicio + 1, fim);
         trocar(perm, inicio, i); // desfaz a troca
     }
 }
@@ -96,12 +95,12 @@ int main() {
     }
 
     calcularDistancias();
-    gerarPerm(0, 10 - 2);
+    Permutacao(0, 10 - 2);
 
     // Mostra melhor rota encontrada
     printf("\nMelhor rota encontrada:\n0 -> ");
     for (i = 0; i < 10 - 1; i++) {
-        printf("%d -> ", melhorRota[i]);
+        printf("%d ---> ", melhorRota[i]);
     }
     printf("0 | Dist. total: %.2lf\n", menorDistancia);
     printf("Total de rotas avaliadas: %lld\n", totalRotas);
