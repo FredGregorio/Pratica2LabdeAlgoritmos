@@ -60,13 +60,13 @@ void Permutacao(int inicio, int fim) {
 
         totalRotas++;
 
-        // Mostra a rota atual
-        /*printf("Rota %ld: 0 -----> ", totalRotas);
+        //Mostra a rota atual
+        printf("Rota Num. %ld: 0 -----> ", totalRotas);
         for (i = 0; i < 10 - 1; i++) {
             printf("%d -----> ", perm[i]);
         }
         printf("0 | Dist.: %.2lf\n", soma);
-        */
+        
 
         // Atualiza melhor rota
         if (soma < menorDistancia) {
@@ -99,7 +99,7 @@ int main() {
     Permutacao(0, 10 - 2);
 
     // Mostra melhor rota encontrada
-    printf("\nMelhor rota encontrada:\n0 -> ");
+    printf("\nMelhor rota encontrada:\n0 -----> ");
     for (i = 0; i < 10 - 1; i++) {
         printf("%d -----> ", melhorRota[i]);
     }
