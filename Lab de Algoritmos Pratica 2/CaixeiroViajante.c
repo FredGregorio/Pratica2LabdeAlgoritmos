@@ -90,7 +90,7 @@ void Permutacao(int inicio, int fim) {
 int main() {
     int i;
 
-    // Inicializa permutação de cidades (de 1 a 9)
+    // Inicializa permutação de cidades de 1 a 9
     for (i = 0; i < 10 - 1; i++) {
         perm[i] = i + 1;
     }
